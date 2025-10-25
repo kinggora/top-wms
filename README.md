@@ -7,11 +7,8 @@ Effitopia는 B2B 창고 관리 시스템(WMS) 개발 프로젝트 입니다. 창
 - ``Effitopia`` : 효율성을 의미하는 'Efficiency', 이상향을 의미하는 'Utopia'의 합성어
 
 ## 프로젝트 일정
-- **9/26** : 프로젝트 주제 선정, 기획안 작성
-
-- **9/26 - 10/2** : 프로젝트 설계, 구현 및 테스트, 포트폴리오 작성, 마무리 및 발표 준비
-
-- **10/2** : 프로젝트 발표 및 평가
+#### 개발 기간: 2024.09.26 - 2024.10.02 (7일)
+<image src="https://github.com/user-attachments/assets/cc1da0b0-3727-4ffe-9dc4-9248081605fd" width="600">
 
 ## 개발 팀
 **TOP(This is Our Page)**
@@ -84,6 +81,12 @@ Effitopia는 B2B 창고 관리 시스템(WMS) 개발 프로젝트 입니다. 창
 - **Database**: MySQL 8.0.21, MyBatis, Spring Data Redis
 - **Library**: Thymeleaf, Bootstrap
 - **Tools**: GitHub, Notion, Slack
+
+## ERD
+![Image](https://github.com/user-attachments/assets/d7f76969-583d-4612-8fac-466fa79b5724)
+
+## Wireframe
+![Image](https://github.com/user-attachments/assets/858a443d-29e8-41e4-8e08-18181efdc465)
 
 ## 프로젝트 구조
 ```
