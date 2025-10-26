@@ -1,10 +1,7 @@
 package com.top.effitopia.mapper;
 
 import com.top.effitopia.domain.*;
-import com.top.effitopia.dto.MemberDTO;
-import com.top.effitopia.dto.OrderDTO;
-import com.top.effitopia.dto.PageRequestDTO;
-import com.top.effitopia.dto.StockDTO;
+import com.top.effitopia.dto.*;
 import com.top.effitopia.enumeration.OutboundStatus;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.BeforeEach;
@@ -118,14 +115,40 @@ public class OrderMapperTests {
         log.info("Found Order: {}", order);
     }
 
-    @Test
-    void testFindAll() {
-        log.info("OrderMapperTests testFindAll");
+//    @Test
+//    void testFindAll() {
+//        log.info("OrderMapperTests testFindAll");
+//
+//        List<Order> orders = orderMapper.findAll(new PageRequestDTO());
+//        assertThat(orders).isNotEmpty();
+//        log.info("Total Orders: {}", orders.size());
+//    }
 
-        List<Order> orders = orderMapper.findAll(new PageRequestDTO());
+    @Test
+    void testFindAllWithSearch() {
+        log.info("OrderMapperTests testFindAllWithSearch");
+
+        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+
+        OutboundSearchDTO searchDTO = OutboundSearchDTO.builder()
+                .region("Seoul")
+                .productName("ProductA")
+                .startDate(LocalDateTime.of(2023, 1, 1, 0, 0))
+                .endDate(LocalDateTime.of(2023, 12, 31, 23, 59))
+                .outboundStatus("PENDING")
+                .build();
+
+        List<Order> orders = orderMapper.findAll(pageRequestDTO);
+
         assertThat(orders).isNotEmpty();
-        log.info("Total Orders: {}", orders.size());
+        log.info("Total Orders with search criteria: {}", orders.size());
+
+        orders.forEach(order -> {
+            assertThat(order.getBuyerName()).isNotNull();
+            assertThat(order.getStock().getProduct().getName()).isEqualTo("ProductA");
+        });
     }
+
 
     @Test
     void testUpdateOrder() {

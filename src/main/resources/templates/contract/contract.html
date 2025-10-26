@@ -1,477 +1,559 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <title>EFFITOPIA</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+  <meta charset="utf-8">
+  <title>EFFITOPIA</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
-    <link href="/css/style.css" rel="stylesheet">
-    <style>
-        .title{
-            padding-top: 40px;
-            padding-bottom: 32px;
-        }
+  <!-- Template Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+  <style>
+    .title{
+      padding-top: 40px;
+      padding-bottom: 32px;
+    }
 
-        .background-margin{
-            margin-right: 10px;
-        }
+    .background-margin{
+      margin-right: 10px;
+    }
 
-        .background-margin-2{
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
+    .background-margin-2{
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
 
-        .table{
-            Text-Align :center;
-        }
+    .table{
+      Text-Align :center;
+    }
 
-        .map-search{
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+    .map-search{
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
-        .list-page{
-            display: flex;
-            justify-content: left;
-            align-items: center;
-        }
+    .list-page{
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
 
-        .container-contract{
-            display: block;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    .container-contract{
+      display: block;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 
 <body>
 <div class="container-xxl position-relative bg-white d-flex p-0">
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+
+
+  <!-- Sidebar Start -->
+  <div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-light navbar-light">
+      <a href="register.html" class="navbar-brand mx-4 mb-3">
+        <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>EFFITOPIA</h3>
+      </a>
+      <div class="d-flex align-items-center ms-4 mb-4">
+        <div class="position-relative">
+          <img class="rounded-circle" src="img/admin.jpg" alt="" style="width: 50px; height: 50px;">
+          <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
         </div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Sidebar Start -->
-    <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-light navbar-light">
-            <a href="register.html" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>EFFITOPIA</h3>
-            </a>
-            <div class="d-flex align-items-center ms-4 mb-4">
-                <div class="position-relative">
-                    <img class="rounded-circle" src="img/admin.jpg" alt="" style="width: 50px; height: 50px;">
-                    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                </div>
-                <div class="ms-3">
-                    <h6 class="mb-0">박태환</h6>
-                    <span>회원권한</span>
-                </div>
-            </div>
-            <div class="navbar-nav w-100">
-                <a href="register.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>회원관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">전체 회원 조회</a>
-                        <a href="" class="dropdown-item">창고별 계약 회원 조회</a>
-                        <a href="" class="dropdown-item">회원 가입 승인</a>
-                        <a href="" class="dropdown-item">회원 탈퇴 승인</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>입고관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">입고요청</a>
-                        <a href="" class="dropdown-item">입고현황</a>
-                        <a href="" class="dropdown-item">입고</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>출고관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">출고요청</a>
-                        <a href="" class="dropdown-item">출고현황</a>
-                        <a href="" class="dropdown-item">배차현황</a>
-                        <a href="" class="dropdown-item">운송장현황</a>
-                        <a href="" class="dropdown-item">차량현황</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>거래처관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">거래처등록</a>
-                        <a href="" class="dropdown-item">거래처현황</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>재고관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">재고현황</a>
-                        <a href="" class="dropdown-item">재고실사</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>창고관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="/warehouses/register" class="dropdown-item">창고등록</a>
-                        <a href="/warehouses/list" class="dropdown-item">창고현황</a>
-                        <a href="/contract/list" class="dropdown-item">창고계약</a>
-                        <a href="/contract/contract" class="dropdown-item">창고계약현황</a>
-                        <a href="" class="dropdown-item">안전점검</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>재무관리</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">지출내역</a>
-                        <a href="" class="dropdown-item">매출내역</a>
-                        <a href="" class="dropdown-item">총 정산내역</a>
-                        <a href="" class="dropdown-item">지출관리</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>고객센터</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="" class="dropdown-item">공지사항</a>
-                        <a href="" class="dropdown-item">문의 게시판</a>
-                    </div>
-                </div>
-                <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                <a href="" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="../../../../../../../../Downloads/dashmin-1.0.0/signin.html" class="dropdown-item">Sign In</a>
-                        <a href="../../../../../../../../Downloads/dashmin-1.0.0/signup.html" class="dropdown-item">Sign Up</a>
-                        <a href="../../../../../../../../Downloads/dashmin-1.0.0/404.html" class="dropdown-item">404 Error</a>
-                        <a href="../../../../../../../../Downloads/dashmin-1.0.0/blank.html" class="dropdown-item">Blank Page</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- Sidebar End -->
-
-
-    <!-- Content Start -->
-    <div class="content">
-        <!-- Navbar Start -->
-        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-            <a href="register.html" class="navbar-brand d-flex d-lg-none me-4">
-                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-            </a>
-            <a href="#" class="sidebar-toggler flex-shrink-0">
-                <i class="fa fa-bars"></i>
-            </a>
-            <form class="d-none d-md-flex ms-4">
-                <input class="form-control border-0" type="search" placeholder="Search">
-            </form>
-            <div class="navbar-nav align-items-center ms-auto">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fa fa-envelope me-lg-2"></i>
-                        <span class="d-none d-lg-inline-flex">Message</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="ms-2">
-                                    <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                    <small>15 minutes ago</small>
-                                </div>
-                            </div>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all message</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fa fa-bell me-lg-2"></i>
-                        <span class="d-none d-lg-inline-flex">Notification</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Profile updated</h6>
-                            <small>15 minutes ago</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">New user added</h6>
-                            <small>15 minutes ago</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                            <h6 class="fw-normal mb-0">Password changed</h6>
-                            <small>15 minutes ago</small>
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item text-center">See all notifications</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <img class="rounded-circle me-lg-2" src="img/admin.jpg" alt="" style="width: 50px; height: 50px;">
-                        <span class="d-none d-lg-inline-flex">박태환</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">My Profile</a>
-                        <a href="#" class="dropdown-item">Settings</a>
-                        <a href="#" class="dropdown-item">Log Out</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- Navbar End -->
-
-            <div class="title">
-                <h1>계약 요청</h1>
-            </div>
-
-            <!-- Table Start -->
-            <div class="background-margin">
-                <div class="bg-light rounded h-100 p-5">
-                    <div class="list-page">
-                        <h6 style="height: 10px;"><a href="#">계약 요청</a></h6>
-                        <a href="#" style="padding-left: 50px;">계약 조회</a>
-                    </div>
-
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col"><input type="checkbox" class="form-check-input" id="selectAll"></th>
-                            <th scope="col">창고 이름</th>
-                            <th scope="col">회원 이름</th>
-                            <th scope="col">계약 상태</th>
-                            <th scope="col">계약 시작일</th>
-                            <th scope="col">계약 종료일</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="item:${responseDTO.dtoList}">
-                                <td><input type="checkbox" class="form-check-input rowCheckbox" name="items" th:value="${item.warehouseDTO.id}"></td>
-                                <td th:text="${item.warehouseDTO.name}"></td>
-                                <td th:text="${item.memberDTO.name}"></td>
-                                <td th:text="${item.status}"></td>
-                                <td th:text="${item.startDate}"></td>
-                                <td th:text="${item.endDate}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div>
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center mt-4 flex-wrap">
-                                <li class="page-item mx-1" th:classappend="${responseDTO.prev ? '' : 'disabled'}">
-                                    <a class="page-link" th:href="@{/contract/contract(page=${responseDTO.start - 1}, size=${responseDTO.size})}" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item mx-1" th:each="i : ${#numbers.sequence(responseDTO.start, responseDTO.end)}"
-                                    th:classappend="${i == responseDTO.page ? 'active' : ''}">
-                                    <a class="page-link" th:href="@{/contract/contract(page=${i}, size=${responseDTO.size})}" th:text="${i}">1</a>
-                                </li>
-                                <li class="page-item" th:classappend="${responseDTO.next ? '' : 'disabled'}">
-                                    <a class="page-link" th:href="@{/contract/contract(page=${responseDTO.end + 1}, size=${responseDTO.size})}" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle-reject"  style="float: right;">거절</button>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle-apply"  style="float: right; margin-right: 50px;">승인</button>
-                            </div>
-                        </nav>
-                    </div>
-                    </div>
-                </div>
-            </div>
+        <div class="ms-3">
+          <h6 class="mb-0">박태환</h6>
+          <span>회원권한</span>
         </div>
-            <!-- Table End -->
+      </div>
+      <div class="navbar-nav w-100">
+        <a href="register.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>회원관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">전체 회원 조회</a>
+            <a href="" class="dropdown-item">창고별 계약 회원 조회</a>
+            <a href="" class="dropdown-item">회원 가입 승인</a>
+            <a href="" class="dropdown-item">회원 탈퇴 승인</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>입고관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">입고요청</a>
+            <a href="" class="dropdown-item">입고현황</a>
+            <a href="" class="dropdown-item">입고</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>출고관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">출고요청</a>
+            <a href="" class="dropdown-item">출고현황</a>
+            <a href="" class="dropdown-item">배차현황</a>
+            <a href="" class="dropdown-item">운송장현황</a>
+            <a href="" class="dropdown-item">차량현황</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>거래처관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">거래처등록</a>
+            <a href="" class="dropdown-item">거래처현황</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>재고관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">재고현황</a>
+            <a href="" class="dropdown-item">재고실사</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>창고관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="/warehouses/register" class="dropdown-item">창고등록</a>
+            <a href="/warehouses/list" class="dropdown-item">창고현황</a>
+            <a href="/contract/list" class="dropdown-item">창고계약</a>
+            <a href="/contract/contract" class="dropdown-item">창고계약현황</a>
+            <a href="" class="dropdown-item">안전점검</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>재무관리</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">지출내역</a>
+            <a href="" class="dropdown-item">매출내역</a>
+            <a href="" class="dropdown-item">총 정산내역</a>
+            <a href="" class="dropdown-item">지출관리</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>고객센터</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="" class="dropdown-item">공지사항</a>
+            <a href="" class="dropdown-item">문의 게시판</a>
+          </div>
+        </div>
+        <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+        <a href="" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+        <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+          <div class="dropdown-menu bg-transparent border-0">
+            <a href="../../../../../../../../Downloads/dashmin-1.0.0/signin.html" class="dropdown-item">Sign In</a>
+            <a href="../../../../../../../../Downloads/dashmin-1.0.0/signup.html" class="dropdown-item">Sign Up</a>
+            <a href="../../../../../../../../Downloads/dashmin-1.0.0/404.html" class="dropdown-item">404 Error</a>
+            <a href="../../../../../../../../Downloads/dashmin-1.0.0/blank.html" class="dropdown-item">Blank Page</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Sidebar End -->
 
-            <div class="modal fade" id="exampleModalToggle-apply" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">계약 승인</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">정말 승인하시겠습니까?</div>
-                        <div class="modal-footer">
-                            <button type="submit" id="submitBtn" class="btn btn-primary" data-bs-target="#exampleModalToggle-apply2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 70px; margin-right: 30px;">예</button>
-                            <button class="btn btn-primary" data-bs-dismiss="modal">아니요</button>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="modal fade" id="exampleModalToggle-apply2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">계약 승인</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">승인이 완료되었습니다.</div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="modal fade" id="exampleModalToggle-reject" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">계약 거절</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">정말 거절하시겠습니까?</div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle-reject2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 70px; margin-right: 30px;">예</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">아니요</button>
-                        </div>
-                    </div>
+  <!-- Content Start -->
+  <div class="content">
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+      <a href="register.html" class="navbar-brand d-flex d-lg-none me-4">
+        <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+      </a>
+      <a href="#" class="sidebar-toggler flex-shrink-0">
+        <i class="fa fa-bars"></i>
+      </a>
+      <form class="d-none d-md-flex ms-4">
+        <input class="form-control border-0" type="search" placeholder="Search">
+      </form>
+      <div class="navbar-nav align-items-center ms-auto">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fa fa-envelope me-lg-2"></i>
+            <span class="d-none d-lg-inline-flex">Message</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+            <a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="ms-2">
+                  <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                  <small>15 minutes ago</small>
                 </div>
+              </div>
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="ms-2">
+                  <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                  <small>15 minutes ago</small>
                 </div>
-                <div class="modal fade" id="exampleModalToggle-reject2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">계약 거절</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">거절이 완료되었습니다.</div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-                        </div>
-                    </div>
+              </div>
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="ms-2">
+                  <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                  <small>15 minutes ago</small>
                 </div>
-            </div>
+              </div>
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item text-center">See all message</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fa fa-bell me-lg-2"></i>
+            <span class="d-none d-lg-inline-flex">Notification</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+            <a href="#" class="dropdown-item">
+              <h6 class="fw-normal mb-0">Profile updated</h6>
+              <small>15 minutes ago</small>
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item">
+              <h6 class="fw-normal mb-0">New user added</h6>
+              <small>15 minutes ago</small>
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item">
+              <h6 class="fw-normal mb-0">Password changed</h6>
+              <small>15 minutes ago</small>
+            </a>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item text-center">See all notifications</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <img class="rounded-circle me-lg-2" src="img/admin.jpg" alt="" style="width: 50px; height: 50px;">
+            <span class="d-none d-lg-inline-flex">박태환</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+            <a href="#" class="dropdown-item">My Profile</a>
+            <a href="#" class="dropdown-item">Settings</a>
+            <a href="#" class="dropdown-item">Log Out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
 
-            <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer End -->
-        
-        <!-- Content End -->
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <div class="title">
+      <h1>계약 요청</h1>
     </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Table Start -->
+    <div class="background-margin">
+      <div class="bg-light rounded h-100 p-5">
+        <div class="list-page">
+          <h6 style="height: 10px;"><a href="#">계약 요청</a></h6>
+          <a href="#" style="padding-left: 50px;">계약 조회</a>
+        </div>
 
-    <!-- Template Javascript -->
-    <script src="/js/main.js"></script>
-    <script>
-        document.getElementById("submitBtn").addEventListener("click", function() {
-            // 선택된 체크박스 값을 배열로 수집
-            let selectedItems = [];
-            document.querySelectorAll('input[name="items"]:checked').forEach(function(checkbox) {
-                selectedItems.push(checkbox.value);  // 체크된 체크박스의 value(warehouseDTO.id)를 배열에 추가
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col"><input type="checkbox" class="form-check-input" id="selectAll"></th>
+            <th scope="col">창고 이름</th>
+            <th scope="col">회원 이름</th>
+            <th scope="col">계약 상태</th>
+            <th scope="col">계약 시작일</th>
+            <th scope="col">계약 종료일</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:if="${#lists.isEmpty(responseDTO.dtoList)}">
+            <td colspan="6" class="text-center">데이터가 없습니다.</td>
+          </tr>
+          <tr th:each="item:${responseDTO.dtoList}">
+            <td><input type="checkbox" class="form-check-input rowCheckbox" name="items" th:value="${item.warehouseDTO.id}"></td>
+            <td th:text="${item.warehouseDTO.name}"></td>
+            <td th:text="${item.memberDTO.name}"></td>
+            <td th:text="${item.status}"></td>
+            <td th:text="${item.startDate}"></td>
+            <td th:text="${item.endDate}"></td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-4 flex-wrap">
+              <li class="page-item mx-1" th:classappend="${responseDTO.prev ? '' : 'disabled'}">
+                <a class="page-link" th:href="@{/contract/contract(page=${responseDTO.start - 1}, size=${responseDTO.size})}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item mx-1" th:each="i : ${#numbers.sequence(responseDTO.start, responseDTO.end)}"
+                  th:classappend="${i == responseDTO.page ? 'active' : ''}">
+                <a class="page-link" th:href="@{/contract/contract(page=${i}, size=${responseDTO.size})}" th:text="${i}">1</a>
+              </li>
+              <li class="page-item" th:classappend="${responseDTO.next ? '' : 'disabled'}">
+                <a class="page-link" th:href="@{/contract/contract(page=${responseDTO.end + 1}, size=${responseDTO.size})}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+            <div>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle-reject"  style="float: right;">거절</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle-apply"  style="float: right; margin-right: 50px;">승인</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Table End -->
+
+<div class="modal fade" id="exampleModalToggle-apply" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">계약 승인</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">계약을 승인하시겠습니까?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" id="approveBtn">승인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle-apply2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">계약 승인</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalMessageBody">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="confirmButton">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle-reject" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">계약 거절</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">계약을 거절하시겠습니까?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" id="rejectBtn">거절</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalToggle-reject2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">계약 거절</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="rejectMessageBody">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="rejectConfirmButton">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Start -->
+<div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded-top p-4">
+    <div class="row">
+      <div class="col-12 col-sm-6 text-center text-sm-start">
+        &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+      </div>
+      <div class="col-12 col-sm-6 text-center text-sm-end">
+        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+        </br>
+        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer End -->
+
+<!-- Content End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/chart/chart.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/tempusdominus/js/moment.min.js"></script>
+<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/js/main.js"></script>
+<script>
+    document.getElementById("selectAll").addEventListener("change", function() {
+        let isChecked = this.checked;
+        let checkboxes = document.querySelectorAll(".rowCheckbox");
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = isChecked;
+        });
+    });
+
+    document.querySelectorAll(".rowCheckbox").forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+            let checkboxes = document.querySelectorAll(".rowCheckbox");
+            let selectAll = document.getElementById("selectAll");
+
+            selectAll.checked = Array.from(checkboxes).every(function (checkbox) {
+                return checkbox.checked;
             });
 
-            // AJAX로 POST 요청 보내기
-            fetch('/approve', {
+            selectAll.indeterminate = !selectAll.checked && Array.from(checkboxes).some(function (checkbox) {
+                return checkbox.checked;
+            });
+        });
+    });
+
+    document.getElementById("approveBtn").addEventListener("click", function() {
+        setTimeout(function() {
+            $('#exampleModalToggle-apply').remove();  // 모달 숨기기
+            $('.modal-backdrop').remove();  // 배경을 숨기기
+        }, 100);
+
+        let selectedIds = [];
+
+        document.querySelectorAll(".rowCheckbox:checked").forEach(function(checkbox) {
+            selectedIds.push(checkbox.value);
+        });
+
+        if (selectedIds.length > 0) {
+            fetch('/contract/approve', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ items: selectedItems })
+                body: JSON.stringify(selectedIds)
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Success:', data);
+                    const message = data.message;
+
+                    if (message) {
+                        document.getElementById('modalMessageBody').textContent = message;
+
+                        const modal2 = new bootstrap.Modal(document.getElementById('exampleModalToggle-apply2'));
+                        modal2.show();
+                    }
                 })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+        } else {
+            alert("선택된 항목이 없습니다.");
+        }
+    });
 
-        document.getElementById("selectAll").addEventListener("change", function() {
-            // selectAll 체크박스의 체크 상태를 가져옴
-            let isChecked = this.checked;
+    document.getElementById("rejectBtn").addEventListener("click", function() {
+        setTimeout(function() {
+            $('#exampleModalToggle-reject').remove();
+            $('.modal-backdrop').remove();
+        }, 100);
 
-            // 테이블 내 모든 체크박스를 선택
-            let checkboxes = document.querySelectorAll(".rowCheckbox");
+        let selectedIds = [];
 
-            // 각 체크박스의 상태를 selectAll 체크박스와 동일하게 설정
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = isChecked;
-            });
+        document.querySelectorAll(".rowCheckbox:checked").forEach(function(checkbox) {
+            selectedIds.push(checkbox.value);
         });
-    </script>
-</body>
 
+        if (selectedIds.length > 0) {
+            fetch('/contract/reject', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(selectedIds)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const message = data.message;
+
+                    if (message) {
+                        document.getElementById('rejectMessageBody').textContent = message;
+
+                        const modal2 = new bootstrap.Modal(document.getElementById('exampleModalToggle-reject2'));
+                        modal2.show();
+                    }
+                })
+        } else {
+            alert("선택된 항목이 없습니다.");
+        }
+    });
+
+    document.getElementById('confirmButton').addEventListener('click', function() {
+        const modal = new bootstrap.Modal(document.getElementById('exampleModalToggle-apply2'));
+        modal.hide();
+
+        location.reload();
+    });
+
+    document.getElementById('rejectConfirmButton').addEventListener('click', function() {
+        const modal = new bootstrap.Modal(document.getElementById('exampleModalToggle-reject2'));
+        modal.hide();
+
+        location.reload();
+    });
+</script>
+</body>
 </html>

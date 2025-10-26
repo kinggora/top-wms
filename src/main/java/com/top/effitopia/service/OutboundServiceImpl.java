@@ -8,9 +8,11 @@ import com.top.effitopia.mapper.OrderMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.redis.connection.SortParameters;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -42,11 +44,11 @@ public class OutboundServiceImpl implements OutboundService {
         Order order = modelMapper.map(orderDTO, Order.class);
         orderMapper.updateOrder(order);
 
-        Outbound outbound = orderMapper.findOutboundByOrderId(id);
         OutboundDTO outboundDTO = OutboundDTO.builder()
+                .orderDTO(modelMapper.map(orderMapper.findById(id), OrderDTO.class))
                 .modDate(LocalDateTime.now())
                 .build();
-        outbound = modelMapper.map(outboundDTO, Outbound.class);
+        Outbound outbound = modelMapper.map(outboundDTO, Outbound.class);
         orderMapper.updateOutbound(outbound);
     }
 
@@ -115,12 +117,75 @@ public class OutboundServiceImpl implements OutboundService {
         return 0.0;
     }
 
+//    @Override
+//    public List<OrderDTO> getOrders(PageRequestDTO pageRequestDTO) {
+//        List<Order> orders = orderMapper.findAll(pageRequestDTO);
+//        return orders.stream()
+//                .map(order -> modelMapper.map(order, OrderDTO.class))
+//                .collect(Collectors.toList());
+//    }
+
     @Override
-    public List<OrderDTO> getOrders(PageRequestDTO pageRequestDTO) {
+    public PageResponseDTO<AllInOneDTO> getOrders(PageRequestDTO pageRequestDTO) {
         List<Order> orders = orderMapper.findAll(pageRequestDTO);
-        return orders.stream()
-                .map(order -> modelMapper.map(order, OrderDTO.class))
-                .collect(Collectors.toList());
+        int total = orderMapper.getOrderCount(pageRequestDTO);
+        List<AllInOneDTO> allInOneDTOList = new ArrayList<>();
+        orders.forEach(order -> {
+            MemberDTO memberDTO = MemberDTO.builder()
+                    .id(order.getMember().getId())
+                    .name(order.getMember().getName())
+                    .email(order.getMember().getEmail())
+                    .phone(order.getMember().getPhone())
+                    .businessNumber(order.getMember().getBusinessNumber())
+                    .build();
+
+            ProductDTO productDTO = ProductDTO.builder()
+                    .id(order.getStock().getProduct().getId())
+                    .name(order.getStock().getProduct().getName())
+                    .productBrand(order.getStock().getProduct().getProductBrand())
+                    .productWeight(order.getStock().getProduct().getProductWeight())
+                    .productStorageType(order.getStock().getProduct().getProductStorageType())
+                    .build();
+
+            StockDTO stockDTO = StockDTO.builder()
+                    .id(order.getStock().getId())
+                    .productDTO(productDTO)
+                    .stockAmount(order.getStock().getStockAmount())
+                    .expirationDate(order.getStock().getExpirationDate())
+                    .manufacturingDate(order.getStock().getManufacturingDate())
+                    .build();
+
+
+            OutboundDTO outboundDTO = OutboundDTO.builder()
+                    .outboundId((orderMapper.findOutboundByOrderId(order.getOrderId())).getOutboundId())
+                    .orderDTO(modelMapper.map(order, OrderDTO.class))
+                    .outboundStatus((orderMapper.findOutboundByOrderId(order.getOrderId())).getOutboundStatus())
+                    .regDate((orderMapper.findOutboundByOrderId(order.getOrderId())).getRegDate())
+                    .modDate((orderMapper.findOutboundByOrderId(order.getOrderId())).getModDate())
+                    .build();
+
+            OrderDTO orderDTO = OrderDTO.builder()
+                    .orderId(order.getOrderId())
+                    .buyerName(order.getBuyerName())
+                    .zipCode(order.getZipCode())
+                    .buyerRoadName(order.getBuyerRoadName())
+                    .buyerLotNumber(order.getBuyerLotNumber())
+                    .buyerDetailAddress(order.getBuyerDetailAddress())
+                    .buyerLatitude(order.getBuyerLatitude())
+                    .buyerLongitude(order.getBuyerLongitude())
+                    .buyerQuantity(order.getBuyerQuantity())
+                    .stockDTO(stockDTO)
+                    .memberDTO(memberDTO)
+                    .build();
+
+            AllInOneDTO allInOneDTO = AllInOneDTO.builder()
+                    .orderDTO(orderDTO)
+                    .outboundDTO(outboundDTO)
+                    .build();
+
+            allInOneDTOList.add(allInOneDTO);
+        });
+        return new PageResponseDTO<>(pageRequestDTO, allInOneDTOList, total);
     }
 
     @Override

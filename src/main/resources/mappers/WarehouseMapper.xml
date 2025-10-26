@@ -49,6 +49,11 @@
         <result property="type" column="warehouse_type"/>
     </resultMap>
 
+    <resultMap id ="Stock" type ="Stock">
+        <id property="id" column="stock_id"/>
+        <result property="type" column="warehouse_type"/>
+    </resultMap>
+
     <resultMap id="member123" type="Member">
         <id property="id" column="member_id"/>
         <result property="username" column="username"/>
@@ -68,9 +73,41 @@
         </association>
     </resultMap>
 
+    <resultMap id="CellStock" type="Stock">
+        <id property="id" column="stock_id"/>
+        <result property="stockAmount" column="amount"/>
+        <result property="manufacturingDate" column="manufacturing_date"/>
+        <result property="expirationDate" column="expiration_date"/>
+        <result property="regDate" column="reg_date"/>
+        <result property="modDate" column="mod_date"/>
+
+        <association property="cell" javaType="Cell">
+            <id property="id" column="cell_id"/>
+            <result property="code" column="cell_code"/>
+            <result property="width" column="cell_width"/>
+            <result property="length" column="cell_length"/>
+            <result property="capacity" column="cell_capacity"/>
+        </association>
+
+        <association property="product" javaType="Product">
+            <id property="id" column="product_id"/>
+            <result property="name" column="product_name"/>
+        </association>
+    </resultMap>
+
+    <select id="findStockList" resultMap="CellStock" resultType="List">
+        select *
+        from stock s
+                 right outer join cell c on s.cell_id = c.cell_id
+                 join warehouse w on c.warehouse_id = w.warehouse_id
+                 join product p on s.product_id = p.product_id
+        where c.warehouse_id = #{searchCond}
+        order by c.warehouse_id;
+    </select>
+
     <select id="selectId" parameterType="Integer" resultMap="warehouse">
         select * from warehouse w
-        join warehouse_category wc on w.category_id = wc.category_id
+                          join warehouse_category wc on w.category_id = wc.category_id
         where warehouse_id = #{id}
     </select>
 
@@ -113,8 +150,12 @@
         WHERE warehouse_id=#{id}
     </update>
 
-    <select id="getCount" resultType="int">
+    <select id="getWarehouseCount" resultType="int">
         select count(warehouse_id) from warehouse
+    </select>
+
+    <select id="getCellCount" resultType="int">
+        select count(cell_id) from cell where warehouse_id = #{searchCond}
     </select>
 
 

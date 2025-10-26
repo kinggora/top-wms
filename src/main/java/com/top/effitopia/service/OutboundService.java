@@ -14,7 +14,8 @@ public interface OutboundService {
 
     void updateOrderStatus(Integer id, OutboundStatus status);
 
-    List<OrderDTO> getOrders(PageRequestDTO pageRequestDTO);
+//    List<OrderDTO> getOrders(PageRequestDTO pageRequestDTO);
+    PageResponseDTO<AllInOneDTO> getOrders(PageRequestDTO pageRequestDTO);
 
     Optional<DetailsDTO> getOrderDetails(Integer id);
 }

@@ -1,6 +1,7 @@
 package com.top.effitopia.mapper;
 
 import com.top.effitopia.domain.*;
+import com.top.effitopia.dto.OutboundSearchDTO;
 import com.top.effitopia.dto.PageRequestDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,7 +16,10 @@ public interface OrderMapper {
 
     Order findById(Integer orderId);
 
+//    List<Order> findAll(PageRequestDTO pageRequestDTO);
     List<Order> findAll(PageRequestDTO pageRequestDTO);
+
+    int getOrderCount(PageRequestDTO pageRequestDTO);
 
     Outbound findOutboundByOrderId(Integer orderId);
 

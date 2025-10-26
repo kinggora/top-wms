@@ -15,12 +15,10 @@ public interface ContractMapper {
     List<Contract> selectListAll(PageRequestDTO pageRequestDTO);
     List<Contract> selectListByStatus(PageRequestDTO pageRequestDTO);
     int update(Contract contract);
-    void updateApprovalList(List<Integer> id);
-    void updateRejectList(List<Integer> id);
+    boolean updateApprovalList(List<Integer> id);
+    boolean updateRejectList(List<Integer> id);
     int getCount(PageRequestDTO pageRequestDTO);
     WarehouseCost getOne(Integer id);
-
     Integer checkMember(String name);
-
     Integer selectUserId(String name);
 }

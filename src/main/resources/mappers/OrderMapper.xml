@@ -99,6 +99,67 @@
         VALUES (#{outbound.outboundId}, #{waybillNum}, #{waybillPrice}, #{regDate}, #{estimatedArrivalDate}, #{waybillStatus})
     </insert>
 
+
+    <!-- 모든 주문을 조회하는 findAll 메서드 -->
+    <select id="findAll" resultMap="orderResultMap" parameterType="map">
+        SELECT o.*, s.stock_id, p.product_id, m.member_id
+        FROM orders o
+        JOIN stock s ON o.stock_id = s.stock_id
+        JOIN product p ON s.product_id = p.product_id
+        JOIN member m ON o.member_id = m.member_id
+        JOIN outbound ob ON ob.order_id = o.order_id
+        WHERE 1 = 1
+        <if test="searchDTO.region != null and searchDTO.region != ''">
+            AND (o.road_name LIKE CONCAT('%', #{searchDTO.region}, '%')
+            OR o.lot_number LIKE CONCAT('%', #{searchDTO.region}, '%'))
+        </if>
+        <if test="searchDTO.productName != null and searchDTO.productName != ''">
+            AND p.product_name = #{searchDTO.productName}
+        </if>
+        <if test="searchDTO.startDate != null">
+            AND ob.reg_date &gt;= #{searchDTO.startDate}
+        </if>
+        <if test="searchDTO.endDate != null">
+            AND ob.reg_date &lt;= #{searchDTO.endDate}
+        </if>
+        <if test="searchDTO.outboundStatus != null and searchDTO.outboundStatus != ''">
+            AND ob.outbound_status = #{searchDTO.outboundStatus}
+        </if>
+    </select>
+
+
+    <select id="getOrderCount" resultMap="orderResultMap" parameterType="map">
+        SELECT count(*)
+        FROM orders o
+        JOIN stock s ON o.stock_id = s.stock_id
+        JOIN product p ON s.product_id = p.product_id
+        JOIN member m ON o.member_id = m.member_id
+        JOIN outbound ob ON ob.order_id = o.order_id
+        WHERE 1 = 1
+        <if test="searchDTO.region != null and searchDTO.region != ''">
+            AND (o.road_name LIKE CONCAT('%', #{searchDTO.region}, '%')
+            OR o.lot_number LIKE CONCAT('%', #{searchDTO.region}, '%'))
+        </if>
+        <if test="searchDTO.productName != null and searchDTO.productName != ''">
+            AND p.product_name = #{searchDTO.productName}
+        </if>
+        <if test="searchDTO.startDate != null">
+            AND ob.reg_date &gt;= #{searchDTO.startDate}
+        </if>
+        <if test="searchDTO.endDate != null">
+            AND ob.reg_date &lt;= #{searchDTO.endDate}
+        </if>
+        <if test="searchDTO.outboundStatus != null and searchDTO.outboundStatus != ''">
+            AND ob.outbound_status = #{searchDTO.outboundStatus}
+        </if>
+    </select>
+
+
+    <insert id="insertTempStock" parameterType="com.top.effitopia.domain.TempStock" useGeneratedKeys="true" keyProperty="id" keyColumn="temp_stock_id">
+        INSERT INTO temp_stock (member_id, cell_id, product_id, change_amount, manufacturing_date, expiration_date)
+        VALUES (#{member.id}, #{cell.id}, #{product.id}, #{changeAmount}, #{manufacturingDate}, #{expirationDate})
+    </insert>
+
     <select id="findStockById" parameterType="int" resultType="com.top.effitopia.domain.Stock">
         SELECT * FROM stock WHERE stock_id = #{id}
     </select>

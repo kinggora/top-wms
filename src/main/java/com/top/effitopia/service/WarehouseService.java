@@ -28,9 +28,12 @@ public interface WarehouseService {
     List<WarehouseDTO> changedListDTO(List<Warehouse> warehouseList);
 
     List<WarehouseTypeDTO> getTypeList();
+
     double getTotalUtilizationAverage();
+
     List<WarehouseUtilizationDTO> getWarehouseUtilizationList();
 
     List<MemberDTO> getAssignableWarehouseManagerList();
 
+    PageResponseDTO<StockDTO> getStockList(PageRequestDTO<CellDTO> pageRequestDTO);
 }

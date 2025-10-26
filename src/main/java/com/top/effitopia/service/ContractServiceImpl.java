@@ -65,13 +65,15 @@ public class ContractServiceImpl implements ContractService{
     }
 
     @Override
-    public void modifyApprovalList(List<Integer> id) {
-        contractMapper.updateApprovalList(id);
+    public boolean modifyApprovalList(List<Integer> id) {
+        boolean complete = contractMapper.updateApprovalList(id);
+        return complete;
     }
 
     @Override
-    public void modifyRejectList(List<Integer> id) {
-        contractMapper.updateRejectList(id);
+    public boolean modifyRejectList(List<Integer> id) {
+        boolean complete = contractMapper.updateRejectList(id);
+        return complete;
     }
 
     @Override
@@ -93,14 +95,14 @@ public class ContractServiceImpl implements ContractService{
     @Override
     public WarehouseCostDTO get(Integer id) {
         WarehouseCost warehouseCost = contractMapper.getOne(id);
-        log.info(warehouseCost);
+
         Warehouse warehouse = warehouseCost.getWarehouse();
-        log.info(warehouse);
+
         Member member = warehouse.getMember();
-        log.info(member);
+
 
         MemberDTO memberDTO = MemberDTO.from(member);
-        log.info(memberDTO);
+
 
         WarehouseDTO warehouseDTO = modelMapper.map(warehouse, WarehouseDTO.class);
 
@@ -129,14 +131,14 @@ public class ContractServiceImpl implements ContractService{
         contractList.stream()
                 .forEach(contract -> {
                     Warehouse warehouse = contract.getWarehouse();
-                    log.info(warehouse);
+
                     WarehouseDTO warehouseDTO = modelMapper.map(warehouse, WarehouseDTO.class);
-                    log.info(warehouseDTO);
+
                     Member member = contract.getMember();
                     MemberDTO memberDTO =  modelMapper.map(member, MemberDTO.class);
-                    log.info(memberDTO);
+
                     ContractDTO contractDTO = modelMapper.map(contract, ContractDTO.class);
-                    log.info(contractDTO    );
+
                     contractDTO.setWarehouseDTO(warehouseDTO);
                     contractDTO.setMemberDTO(memberDTO);
 

@@ -10,8 +10,8 @@ public interface ContractService {
     PageResponseDTO<ContractDTO> getListAll(PageRequestDTO<ContractDTO> pageRequestDTO);
     PageResponseDTO<ContractDTO> getListByStatus(PageRequestDTO<ContractDTO>  pageRequestDTO);
     boolean modify(ContractDTO contractDTO);
-    void modifyApprovalList(List<Integer> id);
-    void modifyRejectList(List<Integer> id);
+    boolean modifyApprovalList(List<Integer> id);
+    boolean modifyRejectList(List<Integer> id);
     Contract changedVO(ContractDTO contractDTO);
     WarehouseCostDTO get(Integer id);
     Integer check(String name);

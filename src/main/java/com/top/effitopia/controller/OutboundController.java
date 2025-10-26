@@ -43,10 +43,17 @@ public class OutboundController {
         return "redirect:/outbounds/list";
     }
 
+//    @GetMapping("/list")
+//    public void showList(PageRequestDTO pageRequestDTO, Model model) {
+//        log.info("OutboundController showList GetMapping");
+//        model.addAttribute("orders", outboundService.getOrders(pageRequestDTO));
+//    }
     @GetMapping("/list")
-    public void showList(PageRequestDTO pageRequestDTO, Model model) {
-        log.info("OutboundController showList GetMapping");
-        model.addAttribute("orders", outboundService.getOrders(pageRequestDTO));
+    public void showList(PageRequestDTO pageRequestDTO, @ModelAttribute OutboundSearchDTO searchDTO, Model model) {
+        log.info("OutboundController showList GetMapping with search: {}", searchDTO);
+        pageRequestDTO.setSearchCond(searchDTO);
+        PageResponseDTO<AllInOneDTO> pageResponseDTO = outboundService.getOrders(pageRequestDTO);
+        model.addAttribute("orders", pageResponseDTO);
     }
 
     @GetMapping("/read/{id}")

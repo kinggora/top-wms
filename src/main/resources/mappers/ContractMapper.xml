@@ -78,10 +78,10 @@
 
     <select id="selectListAll" parameterType="com.top.effitopia.dto.PageRequestDTO" resultMap="contract">
         select * from contract c
-        JOIN warehouse w ON c.warehouse_id = w.warehouse_id
-        JOIN member m ON c.member_id = m.member_id
+                          JOIN warehouse w ON c.warehouse_id = w.warehouse_id
+                          JOIN member m ON c.member_id = m.member_id
         ORDER BY contract_id
-        DESC LIMIT #{skip}, #{size}
+                DESC LIMIT #{skip}, #{size}
     </select>
 
     <select id="selectListByStatus" parameterType="com.top.effitopia.dto.PageRequestDTO" resultMap="contract">
@@ -101,7 +101,7 @@
 
     <update id="updateApprovalList" parameterType="java.util.List">
         UPDATE contract
-        SET contract_status='APPROVAL', mod_date = now()
+        SET contract_status='APPROVE', mod_date = now()
         WHERE contract_id IN
         <foreach item="contract" collection="list" open="("  close=")" separator=",">
             #{contract}
@@ -123,14 +123,14 @@
 
     <select id="getOne" parameterType="Integer" resultMap="warehouseCost">
         select * from warehouse_cost wc
-        join warehouse w on wc.warehouse_id = w.warehouse_id
-        join member m on w.member_id = m.member_id
+                          join warehouse w on wc.warehouse_id = w.warehouse_id
+                          join member m on w.member_id = m.member_id
         where w.warehouse_id = #{id}
     </select>
 
     <select id="checkMember" parameterType="String" resultType="java.lang.Integer">
         SELECT m.member_id FROM member m
-        join warehouse w on w.member_id = m.member_id
+                                    join warehouse w on w.member_id = m.member_id
         WHERE name=#{name}
     </select>
 

@@ -33,9 +33,7 @@ public class WarehouseController {
         List<WarehouseTypeDTO> warehouseTypeDTO = warehouseService.getTypeList();
         List<MemberDTO> warehouseDTOList = warehouseService.getAssignableWarehouseManagerList();
         model.addAttribute("warehouseType",warehouseTypeDTO);
-        log.info("ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ " + warehouseTypeDTO);
         model.addAttribute("member",warehouseDTOList);
-        log.info("ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ" + warehouseDTOList);
     }
 
     @GetMapping("/action")
@@ -53,14 +51,9 @@ public class WarehouseController {
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> register(@RequestBody WarehouseDTO warehouseDTO, BindingResult bindingResult){
-        log.info("POST register");
-
-        log.info(warehouseDTO);
-
         Map<String, Object> response = new HashMap<>();
 
         if (bindingResult.hasErrors()) {
-            log.info("has error......");
             response.put("success", false);
             response.put("message", "등록에 실패했습니다. 오류가 있습니다.");
             return ResponseEntity.badRequest().body(response);
@@ -82,7 +75,6 @@ public class WarehouseController {
 
     @GetMapping("/list")
     public void getList(Model model, @Valid @ModelAttribute("pageRequestDTO") PageRequestDTO<WarehouseDTO> pageRequestDTO, BindingResult bindingResult) throws JsonProcessingException {
-        log.info("get list");
         if (bindingResult.hasErrors()){
             model.addAttribute("errorMessages", bindingResult.getAllErrors());
             log.info("Errors: " + bindingResult.getAllErrors());
@@ -94,25 +86,18 @@ public class WarehouseController {
             String jsonUtilizationList = objectMapper.writeValueAsString(pageResponseDTO.getDtoList());
             model.addAttribute("jsonUtilizationList", jsonUtilizationList);
             model.addAttribute("responseDTO", pageResponseDTO);
-            log.info("여기여기여기여기여기여기여기여기여기여기여기여기여기여기여기여기" + pageResponseDTO);
-            log.info("여기여기여기2432432432432432432432432423423" + jsonUtilizationList);
         }
     }
 
     @GetMapping("/cell")
     public void get(@RequestParam("id")Integer id, @ModelAttribute PageRequestDTO pageRequestDTO, Model model, BindingResult bindingResult){
-        log.info("get get");
-
-        if(bindingResult.hasErrors()){
+        if(bindingResult.hasErrors())
             model.addAttribute("errorMessages", bindingResult.getAllErrors());
-            log.info("Errors: " + bindingResult.getAllErrors());
-        }
         else {
             pageRequestDTO.setSearchCond(id);
-            PageResponseDTO<CellDTO> pageResponseDTO = warehouseService.getCellList(pageRequestDTO);
+            PageResponseDTO<StockDTO> pageResponseDTO = warehouseService.getStockList(pageRequestDTO);
 
-            log.info("드루와잇" + pageResponseDTO);
-
+            model.addAttribute("id", id);
             model.addAttribute("responseDTO", pageResponseDTO);
         }
     }
