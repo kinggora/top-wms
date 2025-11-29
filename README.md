@@ -77,17 +77,18 @@
 
 ## 개발 환경
 - **IDE**: IntelliJ IDEA Ultimate
-- **Language**: Java 17, HTML5, CSS3
+- **Language**: Java 17, Javascript, HTML5, CSS3
 - **Framework**: Spring Boot 3.0.1, Spring Security 6, Spring Batch 6
-- **Database**: MySQL 8.0.21, MyBatis, Spring Data Redis
-- **Library**: Thymeleaf, Bootstrap, Kakao Map, Chart.js, Gson, Zxing
+- **Data**: MySQL 8.0.21, MyBatis, Spring Data Redis
+- **frontend**: Thymeleaf, Bootstrap
+- **Library**: Chart.js, Kakao Map, Gson, Zxing
 - **Tools**: GitHub, ERDCloud, Figma, Notion, Slack, Google Workspace
 
 ## ERD
-<img width="2000" alt="Image" src="https://github.com/user-attachments/assets/a27fdc0f-827f-493b-967a-462039e05416" />
+![Image](https://github.com/user-attachments/assets/a27fdc0f-827f-493b-967a-462039e05416)
 
 ## Wireframe
-<img width="2000" alt="Image" src="https://github.com/user-attachments/assets/858a443d-29e8-41e4-8e08-18181efdc465" />
+![Image](https://github.com/user-attachments/assets/83a6972b-9fa7-40d3-a2fc-d0800ed207aa)
 
 ## 프로젝트 구조
 ```
@@ -102,28 +103,6 @@
  ┣ 📂security
  ┗ 📂service
 ```
-
-## 주요 기능
-### 로그인/회원 관리
-![Image](https://github.com/user-attachments/assets/83a6972b-9fa7-40d3-a2fc-d0800ed207aa)
-
-### 창고 관리
-<img width="1664" height="946" alt="Image" src="https://github.com/user-attachments/assets/7f751f5d-c9f5-4fda-9c76-d77773298e3d" />
-
-### 입고 관리
-<img width="1664" height="885" alt="Image" src="https://github.com/user-attachments/assets/9f8e7fcd-5f1e-497a-a41d-fa0dc17f7ee3" />
-
-### 출고 관리
-<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/724f8328-bd2d-4c55-8c9b-9185c9312b50" />
-
-### 재고 관리
-<img width="1664" height="919" alt="Image" src="https://github.com/user-attachments/assets/41a3f0c6-b47e-44e9-b0e3-097e3ee09626" />
-
-### 재무 관리
-<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/5a9ff1b7-6101-4961-8e13-f6c2a0a43d41" />
-
-### 대시 보드
-<img width="1662" height="893" alt="Image" src="https://github.com/user-attachments/assets/5f83722e-f2ec-47fd-96fe-28cc16747441" />
 
 ## 요구사항 분석 및 도메인 설계
 ### 1. 회원 설계
@@ -157,6 +136,28 @@
   - 입/출고 수수료: 일일 입/출고 박스 수에 대해 부과
   - 운임료: 일일 운송장 수에 대해 부과
   - 기타 창고 관리 비용은 창고 관리자가 직접 등록할 수 있다.
+
+## 주요 기능
+### 대시 보드
+<img width="1662" height="893" alt="Image" src="https://github.com/user-attachments/assets/5f83722e-f2ec-47fd-96fe-28cc16747441" />
+
+### 로그인/회원 관리
+![Image](https://github.com/user-attachments/assets/83a6972b-9fa7-40d3-a2fc-d0800ed207aa)
+
+### 창고 관리
+<img width="1664" height="946" alt="Image" src="https://github.com/user-attachments/assets/7f751f5d-c9f5-4fda-9c76-d77773298e3d" />
+
+### 입고 관리
+<img width="1664" height="885" alt="Image" src="https://github.com/user-attachments/assets/9f8e7fcd-5f1e-497a-a41d-fa0dc17f7ee3" />
+
+### 출고 관리
+<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/724f8328-bd2d-4c55-8c9b-9185c9312b50" />
+
+### 재고 관리
+<img width="1664" height="919" alt="Image" src="https://github.com/user-attachments/assets/41a3f0c6-b47e-44e9-b0e3-097e3ee09626" />
+
+### 재무 관리
+<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/5a9ff1b7-6101-4961-8e13-f6c2a0a43d41" />
 
 ## 커밋 메세지 컨벤션
 **Commit Type Gitmoji**
