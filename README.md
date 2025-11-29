@@ -2,9 +2,10 @@
 신세계아이앤씨 JAVA 기반 백엔드 개발자 과정 2차 프로젝트
 
 ## 프로젝트 소개 : Effitopia
-Effitopia는 B2B 창고 관리 시스템(WMS) 개발 프로젝트 입니다. 창고 내 재고를 효율적으로 관리하고, 입고부터 배송까지 신뢰성 있는 물류 운영을 지원하는 WMS(창고 관리 시스템)의 이상향을 실현하는 것을 목표로 하였습니다.
+``Effitopia``는 B2B 창고 관리 시스템(WMS) 개발 프로젝트 입니다. 창고 내 재고를 효율적으로 관리하고, 입고부터 배송까지 신뢰성 있는 물류 운영을 지원하는 WMS(창고 관리 시스템)의 이상향을 실현하는 것을 목표로 하였습니다.
 
 - ``Effitopia`` : 효율성을 의미하는 'Efficiency', 이상향을 의미하는 'Utopia'의 합성어
+<img width="700" alt="Image" src="https://github.com/user-attachments/assets/ed92fb3a-2ae4-4f55-8c69-0bcd5f2c56fc" />
 
 ## 프로젝트 일정
 #### 개발 기간: 2024.09.26 - 2024.10.02 (7일)
@@ -75,25 +76,24 @@ Effitopia는 B2B 창고 관리 시스템(WMS) 개발 프로젝트 입니다. 창
 </table>
 
 ## 개발 환경
-`Java 17`
 - **IDE**: IntelliJ IDEA Ultimate
+- **Language**: Java 17, HTML5, CSS3
 - **Framework**: Spring Boot 3.0.1, Spring Security 6, Spring Batch 6
 - **Database**: MySQL 8.0.21, MyBatis, Spring Data Redis
-- **Library**: Thymeleaf, Bootstrap
+- **Library**: Thymeleaf, Bootstrap, Kakao Map, Chart.js, Gson, Zxing
 - **Tools**: GitHub, ERDCloud, Figma, Notion, Slack, Google Workspace
 
 ## ERD
-<img width="5840" height="2902" alt="Image" src="https://github.com/user-attachments/assets/a27fdc0f-827f-493b-967a-462039e05416" />
+<img width="2000" alt="Image" src="https://github.com/user-attachments/assets/a27fdc0f-827f-493b-967a-462039e05416" />
 
 ## Wireframe
-![Image](https://github.com/user-attachments/assets/858a443d-29e8-41e4-8e08-18181efdc465)
+<img width="2000" alt="Image" src="https://github.com/user-attachments/assets/858a443d-29e8-41e4-8e08-18181efdc465" />
 
 ## 프로젝트 구조
 ```
 📦effitopia
  ┣ 📂config
  ┣ 📂controller
- ┃ ┣ 📂formatter
  ┣ 📂domain
  ┣ 📂dto
  ┣ 📂enumeration
@@ -151,7 +151,7 @@ Effitopia는 B2B 창고 관리 시스템(WMS) 개발 프로젝트 입니다. 창
 4. 출고: 출고 요청된 상품은 남은 유통기한이 짧은 순으로 출고한다.
 ### 6. 재무 설계
 - 창고 관리 중 발생하는 비용을 창고 관리자입장에서 매출, 지출로 나누어 관리한다. (사업자 입장에서 매출 -> 지출, 지출 -> 매출이 됨)
-- 정산 카테고리: 창고 계약비, 창고 보관료, 입/출고 건당 수수료, 운임료, 창고 관리비, 기타
+- 정산 카테고리: 창고 계약비, 창고 보관료, 입/출고 수수료, 운임료, 창고 관리비, 기타
   - 창고 계약비: 창고 계약 시점 1회 부과
   - 창고 보관료: 월간 사용 면적에 대해 부과
   - 입/출고 수수료: 일일 입/출고 박스 수에 대해 부과
