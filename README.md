@@ -139,25 +139,25 @@
 
 ## 주요 기능
 ### 대시 보드
-<img width="1662" height="893" alt="Image" src="https://github.com/user-attachments/assets/5f83722e-f2ec-47fd-96fe-28cc16747441" />
+<img width="1662" height="893" alt="Image" src="https://github.com/user-attachments/assets/6714fc40-fbc1-4724-a1a4-2913671a5ae3" />
 
 ### 로그인/회원 관리
 ![Image](https://github.com/user-attachments/assets/83a6972b-9fa7-40d3-a2fc-d0800ed207aa)
 
 ### 창고 관리
-<img width="1664" height="946" alt="Image" src="https://github.com/user-attachments/assets/7f751f5d-c9f5-4fda-9c76-d77773298e3d" />
+<img width="1664" height="946" alt="Image" src="https://github.com/user-attachments/assets/24bbffb4-6b57-406a-93b1-234055a83247" />
 
 ### 입고 관리
-<img width="1664" height="885" alt="Image" src="https://github.com/user-attachments/assets/9f8e7fcd-5f1e-497a-a41d-fa0dc17f7ee3" />
+<img width="1664" height="885" alt="Image" src="https://github.com/user-attachments/assets/9cb988e7-b151-40c6-bb8a-95fee40ef726" />
 
 ### 출고 관리
-<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/724f8328-bd2d-4c55-8c9b-9185c9312b50" />
+<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/c07a3b69-a70b-427e-9bb1-981d39d7810d" />
 
 ### 재고 관리
-<img width="1664" height="919" alt="Image" src="https://github.com/user-attachments/assets/41a3f0c6-b47e-44e9-b0e3-097e3ee09626" />
+<img width="1664" height="919" alt="Image" src="https://github.com/user-attachments/assets/bbe12b4c-0289-449e-afae-d4e813e3a391" />
 
 ### 재무 관리
-<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/5a9ff1b7-6101-4961-8e13-f6c2a0a43d41" />
+<img width="1667" height="878" alt="Image" src="https://github.com/user-attachments/assets/af1e668b-cd80-4546-8251-b8b6421c8b58" />
 
 ## 커밋 메세지 컨벤션
 **Commit Type Gitmoji**
