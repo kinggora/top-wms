@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.top.effitopia.mapper.RevenueBatchMapper">
+
+    <insert id="insert" parameterType="DailyUsage" useGeneratedKeys="true" keyProperty="id" keyColumn="daily_usage_id">
+        INSERT INTO daily_usage (member_id, warehouse_id, total_area, storage_cost_per_area, base_date, reg_date)
+        VALUES (#{memberId}, #{warehouseId}, #{totalArea}, #{storageCostPerArea},  #{baseDate}, #{regDate})
+    </insert>
+
+    <select id="selectDailyStockArea" resultType="List">
+        SELECT c.warehouse_id, s.member_id, SUM(p.inbound_box_width * p.inbound_box_length * s.amount) as totalArea, wc.storage_cost_per_area
+        FROM stock s, product p, cell c, warehouse_cost wc
+        WHERE s.product_id = p.product_id AND s.cell_id = c.cell_id AND wc.warehouse_id = c.warehouse_id
+        GROUP BY c.warehouse_id, s.member_id
+        ORDER BY warehouse_id ASC LIMIT #{_skiprows}, #{_pagesize};
+    </select>
+
+    <select id="selectMonthlyTotalStorageCost" resultType="List">
+        SELECT warehouse_id, member_id, SUM(total_area * storage_cost_per_area) AS totalStorageCost
+        FROM daily_usage
+        WHERE <![CDATA[
+            base_date >= MAKEDATE(#{year}, 1) + INTERVAL (#{month}-1) MONTH
+          AND base_date <  MAKEDATE(#{year}, 1) + INTERVAL (#{month}) MONTH
+        ]]>
+        GROUP BY warehouse_id, member_id
+        ORDER BY warehouse_id ASC LIMIT #{_skiprows}, #{_pagesize};
+    </select>
+
+    <select id="selectDailyInboundOutboundSummary" resultType="List">
+        SELECT
+            c.warehouse_id, ts.member_id, <![CDATA[
+            SUM(if(ts.change_amount > 0, ts.change_amount, 0)) as inbound_box_cnt,
+            SUM(if(ts.change_amount < 0, -1 * ts.change_amount, 0)) as outbound_box_cnt, ]]>
+            wc.inbound_basic_fee, wc.outbound_basic_fee
+        FROM temp_stock ts, product p, cell c, warehouse_cost wc
+        WHERE ts.product_id = p.product_id AND ts.cell_id = c.cell_id AND c.warehouse_id AND wc.warehouse_id AND DATE(ts.reg_date) = #{baseDate}
+        GROUP BY c.warehouse_id, ts.member_id
+        ORDER BY warehouse_id ASC LIMIT #{_skiprows}, #{_pagesize};
+    </select>
+
+    <select id="selectDailyTotalFreightCost" resultType="List">
+        SELECT c.warehouse_id, s.member_id, SUM(wb.waybill_price) as total_freight_cost, COUNT(wb.waybill_id) as waybill_cnt
+        FROM waybill wb, outbound ob, orders o, stock s, cell c
+        WHERE ob.outbound_id = wb.outbound_id AND ob.order_id = o.order_id AND o.stock_id = s.stock_id AND s.cell_id = c.cell_id AND DATE(wb.reg_date) = #{baseDate}
+        GROUP BY c.warehouse_id, s.member_id
+        ORDER BY warehouse_id ASC LIMIT #{_skiprows}, #{_pagesize};
+    </select>
+
+</mapper>

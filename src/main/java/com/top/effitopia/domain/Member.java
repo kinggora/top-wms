@@ -28,5 +28,9 @@ public class Member {
     private LocalDateTime regDate;
     private LocalDateTime modDate;
 
+    public Member(int id) {
+        this.id = id;
+    }
+
 
 }

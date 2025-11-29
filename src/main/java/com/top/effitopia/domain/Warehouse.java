@@ -44,4 +44,8 @@ public class Warehouse {
     private LocalDateTime regDate;
 
     private LocalDateTime modDate;
+
+    public Warehouse(int id) {
+        this.id = id;
+    }
 }
