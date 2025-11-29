@@ -80,7 +80,7 @@
 - **Language**: Java 17, Javascript, HTML5, CSS3
 - **Framework**: Spring Boot 3.0.1, Spring Security 6, Spring Batch 6
 - **Data**: MySQL 8.0.21, MyBatis, Spring Data Redis
-- **frontend**: Thymeleaf, Bootstrap
+- **Frontend**: Thymeleaf, Bootstrap
 - **Library**: Chart.js, Kakao Map, Gson, Zxing
 - **Tools**: GitHub, ERDCloud, Figma, Notion, Slack, Google Workspace
 
@@ -88,7 +88,7 @@
 ![Image](https://github.com/user-attachments/assets/a27fdc0f-827f-493b-967a-462039e05416)
 
 ## Wireframe
-![Image](https://github.com/user-attachments/assets/83a6972b-9fa7-40d3-a2fc-d0800ed207aa)
+![Image](https://github.com/user-attachments/assets/858a443d-29e8-41e4-8e08-18181efdc465)
 
 ## 프로젝트 구조
 ```
